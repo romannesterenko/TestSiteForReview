@@ -27,7 +27,8 @@ $json = '[
     }                    
 ]';*/
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    echo \Import\Parsing::process($_REQUEST);
+    $requestData = file_get_contents('php://input');
+    echo \Import\Parsing::process($requestData);
 } else {
     echo json_encode(["success" => false, "errors" => ["Invalid request method"]]);
 }

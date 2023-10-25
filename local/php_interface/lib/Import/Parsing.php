@@ -6,10 +6,10 @@ use Helpers\ArrayHelper;
 
 class Parsing
 {
-    public static function process($json)
+    public static function process($request_data)
     {
         $errors = [];
-        $array_data = json_decode($json, true);
+        $array_data = json_decode($request_data, true);
         foreach ($array_data as $data) {
             $product = Goods::find($data['uuid']);
             if($product['ID'] > 0) {
