@@ -6,6 +6,7 @@ if(!$auth_result['success']){
     echo json_encode($auth_result);
     exit;
 }
+/*
 $json = '[
     {
         "uuid": "317",
@@ -24,9 +25,9 @@ $json = '[
             }
         ]
     }                    
-]';
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    echo \Import\Parsing::process($json);
+]';*/
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    echo \Import\Parsing::process($_REQUEST);
 } else {
     echo json_encode(["success" => false, "errors" => ["Invalid request method"]]);
 }
